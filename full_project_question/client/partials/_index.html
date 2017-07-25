@@ -1,0 +1,12 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+<div>	
+ <fieldset><legend>Login Form</legend>	
+	<section ng-controller='mainController'>
+		<form ng-submit='login(user)'>
+			<label>User Name: <input type="text" name="username" ng-model='user.username'></label><br>
+			<input type="submit" name="" value="Login">
+		</form>
+	</section>
+ </fieldset>
+</div>
