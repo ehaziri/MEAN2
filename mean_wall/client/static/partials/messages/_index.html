@@ -1,0 +1,13 @@
+<ng-include src="'/static/partials/shared/_nav.html'"></ng-include>
+
+
+<section ng-init='index()'>
+	<p>Post a message:</p>
+	<form ng-submit="create(message)">
+		<textarea name="message.content" ng-model='message.content'>...here</textarea>
+		<input type="submit" name="submit" value="Post a message">
+	</form>
+
+	
+
+</section>

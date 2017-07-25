@@ -1,0 +1,15 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<section>
+	<form ng-submit='updateBelt()'>
+		Level: <input type="text" name="level" ng-model='belt.level'>
+		Name: <input type="text" name="name" ng-model='belt.name'>
+        <div>    	
+		 Active? 
+		 	<input type="radio" name="isActive" ng-model='belt.isActive' value='true'>True
+		 	<input type="radio" name="isActive" ng-model='belt.isActive' value='false'>False
+        </div>
+        <input type="submit" name="submit" value='Submit'>
+	</form>
+</section>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>Index Page</title>
+</head>
+<script src="angular/angular.js" charset="utf-8"></script>
+<script src="angular-route/angular-route.js" charset="utf-8"></script>
+
+<script src="application/app.js" charset="utf-8"></script>
+
+<script src="application/controllers/players.js" charset="utf-8"></script>
+<script src="application/controllers/teams.js" charset="utf-8"></script>
+<script src="application/controllers/associations.js" charset="utf-8"></script>
+
+
+<script src="application/factories/players.js" charset="utf-8"></script>
+<script src="application/factories/teams.js" charset="utf-8"></script>
+
+
+<body>
+	<span ng-hide="true">Angular is not working</span>
+
+    <a href="/#!/players">Players</a>
+    <a href="/#!/teams">Teams</a>
+    <a href="/#!/associations">Associations</a>
+    <div ng-view=''></div>
+</body>
+</html>

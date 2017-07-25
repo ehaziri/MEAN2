@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>Index</title>
+	<script src='../bower_components/angular/angular.js'></script>
+	<script src="../bower_components/angular-messages/angular-messages.js"></script>
+	<script src="app.js"></script>
+	<script src="controllers/productController.js"></script>
+	<script src="controllers/orderController.js"></script>
+	<script src="factories/productFactory.js"></script>
+
+</head>
+<body>
+	<span ng-hide="true">Angular not working.</span>
+	<fieldset ng-controller='productController'><legend>Products Controller</legend>
+		<form ng-submit='create(product)'>
+			Product Name <input type="text" ng-model="product.name"><br />
+			Product Price <input type="number" ng-model="product.price">
+			<input type="submit" name="submit" value='Add Product'>
+		</form>
+
+		<table>
+			<thead>
+				<th>Name^</th>
+				<th>Price</th>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat='product in products track by $index'>
+					<td>{{ product.name }}</td>
+					<td>{{ product.price}}</td>
+					<td><button ng-click='delete($index)'>Delete Product</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+
+	<fieldset ng-controller='orderController'><legend>Orders Controller</legend>
+		<table>
+			<thead>
+				<th>Name^</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat='product in products track by $index'>
+					<td>{{ product.name }}</td>
+					<td>{{ product.price}}</td>
+					<td>{{ product.quantity}}</td>
+					<td><button ng-click='buy($index)'>Buy</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+</body>
+</html>

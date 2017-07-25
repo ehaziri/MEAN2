@@ -1,0 +1,10 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<section>
+	<form ng-submit='createBelt()'>
+		Level: <input type="text" name="level" ng-model='belt.level'>
+		Name: <input type="text" name="name" ng-model='belt.name'>
+        <input type="submit" name="submit" value='Submit'>
+	</form>
+</section>

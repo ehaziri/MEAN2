@@ -1,0 +1,10 @@
+<ng-include src="'/static/partials/shared/_nav.html'"></ng-include>
+
+<section ng-controller='mainController'>
+<section>
+	<form ng-submit='login(user)'>
+		<p>Enter a username to continue</p>
+		<input type="text" name="username" ng-model='user.username'>
+		<input type="submit" name="submit" value="Enter">
+	</form>
+</section>

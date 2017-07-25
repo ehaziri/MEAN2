@@ -1,0 +1,21 @@
+<section>
+	<fieldset><legend>Teams</legend>
+	<form ng-submit='create(team)'>
+		Name <input type="text" name="name" ng-model='team.name'>
+		<input type="submit" name="submit" value="Add Team">
+	</form>
+
+	<table>
+		<thead>
+			<th>Name^</th>
+			<th>Actions</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat='team in teams'>
+				<td>{{ team.name }}</td>
+				<td><button ng-click='delete($index)'>Remove Team</button></td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+</section>

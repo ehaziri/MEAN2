@@ -1,0 +1,13 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<section ng-init='index()'>
+	<a href="#!/belts/new">Add a Belt</a>
+
+	<ul>
+		<li ng-repeat='belt in belts'>
+			<a href="#!/belts/{{belt._id}}/edit">{{ belt }}</a>
+		</li>
+	</ul>
+
+</section>

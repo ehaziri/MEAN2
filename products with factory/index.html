@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>Index</title>
+	<script src='../bower_components/angular/angular.js'></script>
+	<script src="../bower_components/angular-messages/angular-messages.js"></script>
+	<script>
+		var app = angular.module('app', ['ngMessages']);
+		app.factory('productFactory', function(){
+			var factory = {};
+
+			var products = [];
+			
+			factory.getProducts = function(callback){
+				callback(products);
+			}
+			factory.create = function(product){
+				products.push(product);
+			}
+			factory.delete = function(id){
+				products.splice(id, 1);
+			}
+			return factory;
+		});
+
+		app.controller('mainController', 
+			['$scope', 'productFactory', 
+				function($scope, productFactory) {
+					function setProducts(){
+						productFactory.getProducts(function(data){
+						$scope.products = data;
+					});
+					}
+
+					$scope.products = [];
+
+					setProducts();
+
+					$scope.create = function(product){
+						productFactory.create(product);
+						$scope.product = {};
+					};
+
+					$scope.delete = function(id){
+						productFactory.delete(id);
+						setProducts();
+					}
+
+		}])
+	</script>
+</head>
+<body ng-controller='mainController'>
+	<h1 ng-hide='true'>The angular module missing!</h1>
+	<fieldset><legend>Products Controller</legend>
+		<form name="myForm">
+  <label>
+    Enter text:
+    <input type="email" ng-model="field" name="myField" required maxlength="15" />
+  </label>
+  <div ng-messages="myForm.myField.$error" role="alert">
+    <div ng-message="required">Please enter a value for this field.</div>
+    <div ng-message="email">This field must be a valid email address.</div>
+    <div ng-message="maxlength">This field can be at most 15 characters long.</div>
+  </div>
+</form>
+	</fieldset>
+</body>
+</html>

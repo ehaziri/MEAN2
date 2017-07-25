@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>Index</title>
+	<script src='../bower_components/angular/angular.js'></script>
+	<script>
+		var app = angular.module('app', []);
+		app.factory('userFactory', function(){
+			var factory = {};
+			var users = [
+				{ firstname: "Charlie",
+				  lastname: "Mead",
+				  language: "JavaScript"
+				}
+			];
+			factory.getUsers = function(callback){
+				callback(users);
+			}
+			factory.create = function(user){
+				users.push(user);
+			}
+			factory.delete = function(userToDelete){
+				console.log('f1');
+				users = users.filter(function(user){
+					console.log('f2');
+						   return user !== userToDelete;
+						})
+			}
+			return factory;
+		});
+
+		app.controller('mainController', 
+			['$scope', 'userFactory', 
+				function($scope, userFactory) {
+					function setUsers(){
+						userFactory.getUsers(function(data){
+						$scope.users = data;
+					});
+					}
+
+					$scope.users = [];
+
+					setUsers();
+
+					$scope.create = function(user){
+						userFactory.create(user);
+						$scope.user = {};
+					};
+
+					$scope.delete = function(userToDelete){
+						console.log('cont');
+						userFactory.delete(userToDelete);
+						setUsers();
+					}
+
+		}])
+	</script>
+</head>
+<body ng-controller='mainController'>
+	<h1 ng-hide='true'>The angular module missing!</h1>
+	<fieldset><legend>Users Controller</legend>
+		<form ng-submit='create(user)'>
+			First Name <input type="text" ng-model="user.firstname">
+			Last Name <input type="text" ng-model="user.lastname">
+			Favorite Language <input type="text" ng-model="user.language">
+			<input type="submit" name="submit" value='Create'>
+		</form>
+
+
+		<div>
+			<table>
+				<thead>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Fav Language</th>
+					<th>Actions</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat='user in users'>
+						<td>{{ user.firstname }}</td>
+						<td>{{ user.lastname}}</td>
+						<td>{{ user.language }}</td>
+						<td><button ng-click='delete(user)'>Delete User</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</fieldset>
+</body>
+</html>

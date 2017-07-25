@@ -1,0 +1,16 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<section ng-init='getNinja()'>
+	<h1>Show Page</h1>
+	<ul>
+		<li>Name: {{ ninja.name }}</li>
+		<li>Age: {{ ninja.age }}</li>
+		<li>Belt: {{ ninja.belt.name }}</li>
+		<li>Location: {{ ninja.location }}</li>
+		<li>
+		  <a href="#!/ninjas/{{ninja._id}}/edit"><button>Edit</button></a>
+		  <button ng-click='deleteNinja(ninja._id)'>Delete</button>
+		</li>
+	</ul>
+</section>

@@ -1,0 +1,21 @@
+<section>
+	<fieldset><legend>Players</legend>
+	<form ng-submit='create(player)'>
+		Name <input type="text" name="name" ng-model='player.name'>
+		<input type="submit" name="submit" value="Add Player">
+	</form>
+
+	<table>
+		<thead>
+			<th>Name^</th>
+			<th>Actions</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat='player in players'>
+				<td>{{ player.name }}</td>
+				<td><button ng-click='delete($index)'>Remove Player</button></td>
+			</tr>
+		</tbody>
+	</table>
+	</fieldset>
+</section>

@@ -1,0 +1,32 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+<section>
+	<h5>Post a message</h5>
+	<form ng-submit='create()' name='messageForm'>
+		<textarea ng-model='message.content' name='content'>...</textarea>
+		<input type="submit" name="submit" value='Post a message'>
+	</form>
+	<div id="messages" ng-init='index()'>
+		<div ng-repeat="message in messages | orderBy: '-createdAt'">
+			<h3>{{ message._user.username }} - {{ message.createdAt | date: "h:mm a d/M/yy" }}</h3>
+			<p>{{ message.content  }}</p>
+			<!-- <h1>Mesazhi: {{ message }}</h1> -->
+			<div id="comments" ng-init='getComments()'>
+				  <div ng-repeat="comment in comments | orderBy: 'createdAt'">
+				  <!-- <h1>Komenti: {{ comment }}</h1> -->
+				  	<!-- ketu tash <p>{{ comment._message._id }} dhe {{ message._id }}</p> -->
+			          <div ng-if="comment._message._id == message._id">
+			            <b><i>{{comment._user.username}} - {{comment.createdAt | date:"h:mma MM/dd/yyyy"}} </i></b>
+			            <i>{{comment.content}}</i>
+			          </div>
+			      </div>
+			    <h5>Post a comment</h5>
+				<form ng-submit='createComment(comment, message)'>
+					<textarea ng-model='comment.content' name='content'>...</textarea>
+					<input type="hidden" name="message" ng-model="message">
+					<input type="submit" name="submit" value='Post a comment'>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

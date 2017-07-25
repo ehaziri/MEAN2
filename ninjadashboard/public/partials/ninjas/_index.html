@@ -1,0 +1,26 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<h1>All the ninjas</h1>
+<a href="#!/ninjas/new">Create a new ninja here!</a>
+<table ng-init='getNinjas()'>
+	<thead>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Belt</th>
+		<th>Location</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat='ninja in ninjas'>
+			<td><a href="#!/ninjas/{{ninja._id}}">{{ ninja.name }}</a></td>
+			<td>{{ ninja.age }}</td>
+			<td>{{ ninja.belt.name }}</td>
+			<td>{{ ninja.location }}</td>
+			<td>
+			  <a href="#!/ninjas/{{ninja._id}}/edit"><button>Edit</button></a>
+			  <button ng-click='deleteNinja(ninja._id)'>Delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

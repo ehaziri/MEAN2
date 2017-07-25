@@ -1,0 +1,42 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+<section>
+	<h4>Welcome, {{currentUsername}}</h4>
+	<div class="text-right">
+		<input type="text" name="search" ng-model='search' placeholder="Search...">
+	</div>
+
+	<div class="table">
+		<table border="1">
+			<thead>
+				<th>Category</th>
+				<th>Topic</th>
+				<th>Username</th>
+				<th>Posts</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat='topic in topics'>
+					<td>{{topic.category}}</td>
+					<td><a href="#!/topic/{{topic._id}}">{{topic.title}}</a></td>
+					<td><a href="#!/user/{{topic._owener._id}}">{{topic._owener.username}}</a></td>
+					<td>{{topic._posts.length}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="new_topic">
+		<b>Add a new Topic</b>
+		<form ng-submit='createTopic(topic, currentUserId)'>
+			Topic: <input type="text" name="title" ng-model='topic.title'>
+			Description: <textarea name="description" ng-model='topic.description'></textarea>
+			<!-- <select ng-model='ninja.belt' ng-options='belt as belt.name for belt in belts'></select> -->
+			Category: <select ng-model='topic.category' ng-options='category as category.category for category in categories'>
+					  </select>
+		    <input type="submit" name="submit" value="Submit">
+		</form>
+	</div>
+
+
+
+</section>

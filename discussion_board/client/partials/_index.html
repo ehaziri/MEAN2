@@ -1,0 +1,22 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+<div>
+  <fieldset><legend>Login Form</legend>	
+	<section>
+		<form ng-submit='login(user)' name='loginForm'>
+			<label>User Name: <input type="text" name="username" ng-model='user.username' required maxlength="20"></label><br>
+			<input type="submit" name="" value="Enter">
+		</form>
+		<div ng-messages='loginForm.username.$error' role='alert'>
+			<div>
+				<div ng-message='required'>
+					Please enter a value for the username field.
+				</div>
+				<div ng-message='maxlength'>
+					This field must have less than 20 characters.
+				</div>
+			</div>
+		</div>
+	</section>
+  </fieldset>
+</div>

@@ -1,0 +1,18 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<section>
+	<h1>Create a ninja</h1>
+	<ul>
+		<li ng-repeat='error in errors'>{{ error }}</li>
+	</ul>
+	<form ng-submit='createNinja()'>
+		Name: <input type="text" name='name' ng-model='ninja.name'>
+		Age: <input type="number" name='age' ng-model='ninja.age'>
+		Location: <input type="text" name='location' ng-model='ninja.location'>
+		Belt: 
+			<select ng-model='ninja.belt' ng-options='belt as belt.name for belt in belts'></select>
+		<input type="submit" name="Submit">
+	</form>
+	<a href="#!/ninjas">Home</a>
+</section>

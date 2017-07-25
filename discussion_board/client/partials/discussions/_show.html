@@ -1,0 +1,33 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+<section ng-init='getTopic()'>
+	<div id="topic">
+		<h4>{{topic._owener.username}} posted a topic:</h4>
+		<p><b>{{ topic.title }}</b></p>
+		<p><i>{{ topic.description }}</i></p>
+	</div>
+	<div id="createPost">
+		<p>Post your answer here:</p>
+		<textarea ng-model='post'></textarea>
+		<button ng-click="createPost(post, currentUserId, topic._id)">Post</button>
+	</div>
+	<hr>
+	<!-- <div id="allPosts" ng-init='getPosts(topic._id)'>
+		<div ng-repeat="post in posts">
+			{{post._owener.username}}
+			{{post.post}}
+			{{post.like}}<button>UpVote</button>
+			{{post.dislike}}<button>Downvote</button>
+			<div ng-repeat="comment in comments">
+				{{comment._owener.username}}
+				{{comment.comment}}
+			</div>
+			<textarea ng-model="comment"></textarea>
+			<button ng-click='createComment(comment, post._id, currentUserId)'>Comment</button>
+		</div>
+		<hr>
+	</div> -->
+
+
+
+</section>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>Index Page</title>
+</head>
+	<script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    
+    <script src="application/app.js"></script>
+    <script src='application/services/auth.js'></script>
+	<script src='application/services/user.js'></script>
+
+	<script src='application/controllers/mainController.js'></script>
+
+
+  <!--   <script src="application/controllers/customizeUsers.js" charset="utf-8"></script>
+    <script src="application/controllers/userLists.js" charset="utf-8"></script>
+
+    <script src="application/factories/userFactory.js" charset="utf-8"></script> -->
+
+
+<body>
+	<span ng-hide="true">Angular is not working</span>
+
+    <div ng-view=''></div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+
+<section ng-init='getNinja()'>
+	<h1>Edit ninja: {{ ninja.name }}</h1>
+	<form ng-submit='updateNinja(ninja)'>
+		Name: <input type="text" name='name' ng-model='ninja.name'>
+		Age: <input type="number" name='age' ng-model='ninja.age'>
+		Belt: <select ng-model='ninja.belt' ng-options='belt as belt.name for belt in belts' ng-selected='belt._id = ninja.belt._id'></select>
+		Location: <input type="text" name='location' ng-model='ninja.location'>
+		<input type="submit" name="Submit">
+	</form>
+	<a href="#!/ninjas">Home</a>
+</section>

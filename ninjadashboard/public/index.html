@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>Ninja Dash</title>
+	<script src='angular/angular.js'></script>
+	<script src='angular-cookies/angular-cookies.js'></script>
+	<script src='angular-route/angular-route.js'></script>
+	<script src='app/app.js'></script>
+	<script src='app/controllers/ninjaController.js'></script>
+	<script src='app/controllers/beltController.js'></script>
+	<script src='app/factories/ninjaFactory.js'></script>
+	<script src='app/factories/beltFactory.js'></script>
+	<script src='app/controllers/mainController.js'></script>
+	<script src='app/services/auth.js'></script>
+	<script src='app/services/user.js'></script>
+	
+
+
+
+</head>
+<body>
+	<!-- <h1>Welcome to the Dashboard</h1> -->
+	<div ng-hide='true'>Can you see me?</div>
+	<main ng-view=''></main>
+</body>
+</html>

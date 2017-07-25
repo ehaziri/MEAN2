@@ -1,0 +1,11 @@
+<ng-include src="'/partials/shared/_nav.html'"></ng-include>
+
+<section ng-init='getUser()'>
+	<div id="user">
+		<h4>Username: {{user.username}}</h4>
+		<b>Posted: </b>
+		<h6>{{ user._topics.length }} Topics</h6>
+		<h6>{{ user.posts.length }} Posts</h6>
+		<h6>{{ user._comments.length }} Comments</h6>
+	</div>
+</section>

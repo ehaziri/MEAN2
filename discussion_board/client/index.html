@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>MEAN Project</title>
+	<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+	<script src='angular/angular.js'></script>
+	<script src='angular-cookies/angular-cookies.js'></script>
+	<script src='angular-route/angular-route.js'></script>
+	<script src='angular-messages/angular-messages.js'></script>
+
+	<script src='app/app.js'></script>
+
+	<script src='app/controllers/mainController.js'></script>
+	<script src='app/controllers/dashboardController.js'></script>
+	<script src='app/controllers/showController.js'></script>
+	<script src='app/controllers/userController.js'></script>
+
+	<script src='app/factories/dashboardFactory.js'></script>
+	<script src='app/factories/userFactory.js'></script>
+	<script src='app/factories/categoryFactory.js'></script>
+	<script src='app/factories/postFactory.js'></script>
+
+
+	
+
+	<script src='app/services/auth.js'></script>
+	<script src='app/services/user.js'></script>
+</head>
+<body>
+	<!-- <h1>Welcome to the Dashboard</h1> -->
+	<div ng-hide='true'>Can you see me?</div>
+	<main ng-view=''></main>
+</body>
+</html>
